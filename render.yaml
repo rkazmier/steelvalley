@@ -1,0 +1,21 @@
+databases:
+  - name: static-angular-app-db
+    plan: free
+    databaseName: app
+    user: app
+
+services:
+  - type: web
+    name: static-angular-app
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build && npm run db:push
+    startCommand: npm run serve:ssr:static-angular-app
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: static-angular-app-db
+          property: connectionString

@@ -1,0 +1,37 @@
+# Robots.txt for Steel Valley Range
+# https://steelvalleyrange.pl
+
+User-agent: *
+Allow: /
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+Disallow: /tmp/
+
+# Allow important resources
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://steelvalleyrange.pl/sitemap.xml
+
+# Additional instructions
+# Crawl-delay: 1 means wait 1 second between requests
+# Respect server resources
